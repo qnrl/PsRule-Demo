@@ -10,6 +10,14 @@ This example focusses on executing the rule-checking process locally on Windows 
 
 ## How to use this project ##
 
+### Running in a GitHub Codespace ###
+
+This is the easiest option as all the dependencies are already installed in the Codespace.
+
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/qnrl/PsRule-Demo?quickstart=1)
+
+Then jump to [Executing PSRule in the workspace](#executing-psrule-in-the-workspace)
+
 ### Running locally on Windows ###
 
 1. Clone this repository to your local machine
@@ -37,9 +45,6 @@ This example focusses on executing the rule-checking process locally on Windows 
 
 2. Open the project in VS Code and click the 'Reopen in Container' button in the bottom right of the VS Code window
 
-### Running in a GitHub Codespace ###
-
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/qnrl/PsRule-Demo?quickstart=1)
 
 ### Executing PSRule in the workspace ###
 
