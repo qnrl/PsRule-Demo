@@ -1,5 +1,5 @@
 ﻿## How to use PsRule with Bicep IaC templates ##
-This is a sample project to show how to use PsRule with Bicep.
+This is a sample project to show how to [use PsRule with Bicep](https://azure.github.io/PSRule.Rules.Azure/using-bicep/).
 
 1. Set up PsRule on your local machine. See [installation](https://azure.github.io/PSRule.Rules.Azure/install-instructions/?WT.mc_id=modinfra-72253-socuff#installation)
 2. Run the following commands to invoke PsRule for this project:
