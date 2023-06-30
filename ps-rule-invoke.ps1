@@ -1,4 +1,8 @@
-﻿Invoke-PSRule -InputPath 'examples/' -Module 'PSRule.Rules.Azure' -As Summary
+﻿####################################################################################################
+# Run PSRule:
+####################################################################################################
+
+Invoke-PSRule -InputPath 'examples/' -Module 'PSRule.Rules.Azure' -As Summary
 <# Expected output:
 WARNING: Target object 'examples/storage.bicep' has not been processed because no matching rules were found.
 

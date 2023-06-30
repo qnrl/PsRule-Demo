@@ -1,0 +1,12 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=827846
+  // for the documentation about the extensions.json format
+  "recommendations": [
+    "ms-vscode.powershell",
+    "bewhite.psrule-vscode-preview",
+    "shuworks.vscode-table-formatter",
+    "streetsidesoftware.code-spell-checker",
+    "wmaurer.change-case",
+    "yzane.markdown-pdf"
+  ]
+}
