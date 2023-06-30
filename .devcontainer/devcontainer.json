@@ -39,6 +39,7 @@
     "customizations": {
         "vscode": {
             "extensions": [
+                "ms-vscode.powershell",
                 "ms-azuretools.vscode-azureresourcegroups",
                 "ms-azuretools.vscode-bicep",
                 "editorconfig.editorconfig",
