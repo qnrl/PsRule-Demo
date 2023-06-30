@@ -12,7 +12,7 @@ There is a Bicep template that represents a simple Azure Storage Account which i
 
 ## Running in a GitHub Codespace ##
 
-This is the easiest option as all the dependencies are already installed in the Codespace.
+> *This is the easiest option as all the dependencies are already installed in the Codespace.*
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/qnrl/PsRule-Demo?quickstart=1)
 
@@ -46,29 +46,27 @@ Then jump to [Executing PsRule](#executing-psrule)
 
 ## Executing PsRule ##
 
-1. Execute the following commands in Powershell to invoke PsRule for this project:
+> *In a Dev Container or GitHub Codespace you will have a Bash shell by default so you need to type `pwsh` to get a Powershell session.*
 
-    In a Dev Container or GitHub Codespace you will have a Bash shell by default so you need to type `pwsh` to get a Powershell session.
+Run the following command in Powershell to invoke PsRule against all files in the `examples/` folder (there is just one Bicep template in this example)):
 
-    Run the following command in Powershell to invoke PsRule against all files in the `examples/` folder (there is just one Bicep template in this example)):
+```powershell
+Invoke-PsRule -InputPath 'examples/' -Module 'PsRule.Rules.Azure' -Outcome Fail, Error -As Summary
+```
 
-    ```powershell
-    Invoke-PsRule -InputPath 'examples/' -Module 'PsRule.Rules.Azure' -Outcome Fail, Error -As Summary
-    ```
+You should see output that looks like this:
 
-    You should see output that looks like this:
+[![assets/PsRule-invoke.png](assets/psrule-invoke.png)](assets/psrule-invoke.png)
 
-    [![assets/PsRule-invoke.png](assets/psrule-invoke.png)](assets/psrule-invoke.png)
+You can also run the following variations to see what happens:
 
-    You can also run the following variations to see what happens:
-
-    ```powershell
-    # In Powershell on Windows or in a Dev Container (Ubuntu Linux)
-    Invoke-PsRule -InputPath 'examples/' -Module 'PsRule.Rules.Azure' -As Summary
-    Invoke-PsRule -InputPath 'examples/' -Module 'PsRule.Rules.Azure'
-    Invoke-PsRule -InputPath 'examples/' -Module 'PsRule.Rules.Azure' -As Summary -OutputPath 'output/summary.json'
-    Assert-PsRule -Format File -InputPath 'examples/'  -Module 'PsRule.Rules.Azure' -Outcome Fail, Error
-    ```
+```powershell
+# In Powershell on Windows or in a Dev Container (Ubuntu Linux)
+Invoke-PsRule -InputPath 'examples/' -Module 'PsRule.Rules.Azure' -As Summary
+Invoke-PsRule -InputPath 'examples/' -Module 'PsRule.Rules.Azure'
+Invoke-PsRule -InputPath 'examples/' -Module 'PsRule.Rules.Azure' -As Summary -OutputPath 'output/summary.json'
+Assert-PsRule -Format File -InputPath 'examples/'  -Module 'PsRule.Rules.Azure' -Outcome Fail, Error
+```
 
 ## Rule violations still to be fixed ##
 
