@@ -8,71 +8,67 @@ This is a 'simplest possible' sample project to show how to [use PsRule for Azur
 
 This example focusses on executing the rule-checking process locally on Windows or in a Dev Container (or GitHub Codespace) but it can also be used in a GitHub Action or Azure DevOps Pipeline.
 
-## How to use this project ##
-
-### Running in a GitHub Codespace ###
+## Running in a GitHub Codespace ##
 
 This is the easiest option as all the dependencies are already installed in the Codespace.
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/qnrl/PsRule-Demo?quickstart=1)
 
-Then jump to [Executing PSRule in the workspace](#executing-psrule-in-the-workspace)
+Then jump to [Executing PSRule in the workspace](#executing-psrule)
 
-### Running locally on Windows ###
+## Running locally on Windows ##
 
 1. Clone this repository to your local machine
 
 2. If you haven't already, set up PSRule.Rules.Azure Modules and associated dependencies on your local machine.
 
-  See also [local module installation](https://azure.github.io/PSRule.Rules.Azure/install-instructions/?WT.mc_id=modinfra-72253-socuff#getting-the-modules)
+    See also [local module installation](https://azure.github.io/PSRule.Rules.Azure/install-instructions/?WT.mc_id=modinfra-72253-socuff#getting-the-modules)
 
-  ```powershell
-  # In Powershell on Windows
-  winget install -s winget -e --id "Microsoft.DotNet.Runtime.6"
-  winget install -s winget -e --id "Microsoft.PowerShell"
-  winget install -s winget -e --id "Microsoft.Bicep"
+    ```powershell
+    # In Powershell on Windows
+    winget install -s winget -e --id "Microsoft.DotNet.Runtime.6"
+    winget install -s winget -e --id "Microsoft.PowerShell"
+    winget install -s winget -e --id "Microsoft.Bicep"
 
-  Install-Module -Name 'Az' -Repository PSGallery -Force
-  Install-Module -Name 'PSRule.Rules.Azure' -Repository PSGallery -Scope CurrentUser
-  ```
+    Install-Module -Name 'Az' -Repository PSGallery -Force
+    Install-Module -Name 'PSRule.Rules.Azure' -Repository PSGallery -Scope CurrentUser
+    ```
 
 3. Open the project in VS Code.
 
-
-### Running in a Dev Container ###
+## Running in a Dev Container ##
 
 1. Clone this repository to your local machine
 
 2. Open the project in VS Code and click the 'Reopen in Container' button in the bottom right of the VS Code window
 
-
-### Executing PSRule in the workspace ###
+## Executing PSRule ##
 
 1. Execute the following commands in Powershell to invoke PsRule for this project:
 
-  In a Dev Container or GitHub Codespace you will have a Bash shell by default so you need to type `pwsh` to get a Powershell session.
+    In a Dev Container or GitHub Codespace you will have a Bash shell by default so you need to type `pwsh` to get a Powershell session.
 
-  Run the following command in Powershell to invoke PsRule against all files in the `examples/` folder (there is just one Bicep template in this example)):
+    Run the following command in Powershell to invoke PsRule against all files in the `examples/` folder (there is just one Bicep template in this example)):
 
-  ```powershell
-  Invoke-PSRule -InputPath 'examples/' -Module 'PSRule.Rules.Azure' -Outcome Fail, Error -As Summary
-  ```
+    ```powershell
+    Invoke-PSRule -InputPath 'examples/' -Module 'PSRule.Rules.Azure' -Outcome Fail, Error -As Summary
+    ```
 
-  You should see output that looks like this:
+    You should see output that looks like this:
 
-[![assets/psrule-invoke.png](assets/psrule-invoke.png)](assets/psrule-invoke.png)
+    [![assets/psrule-invoke.png](assets/psrule-invoke.png)](assets/psrule-invoke.png)
 
-  You can also run the following variations to see what happens:
+    You can also run the following variations to see what happens:
 
-  ```powershell
-  # In Powershell on Windows or in a Dev Container (Ubuntu Linux)
-  Invoke-PSRule -InputPath 'examples/' -Module 'PSRule.Rules.Azure' -As Summary
-  Invoke-PSRule -InputPath 'examples/' -Module 'PSRule.Rules.Azure'
-  Invoke-PSRule -InputPath 'examples/' -Module 'PSRule.Rules.Azure' -As Summary -OutputPath 'output/summary.json'
-  Assert-PSRule -Format File -InputPath 'examples/'  -Module 'PSRule.Rules.Azure' -Outcome Fail, Error
-  ```
+    ```powershell
+    # In Powershell on Windows or in a Dev Container (Ubuntu Linux)
+    Invoke-PSRule -InputPath 'examples/' -Module 'PSRule.Rules.Azure' -As Summary
+    Invoke-PSRule -InputPath 'examples/' -Module 'PSRule.Rules.Azure'
+    Invoke-PSRule -InputPath 'examples/' -Module 'PSRule.Rules.Azure' -As Summary -OutputPath 'output/summary.json'
+    Assert-PSRule -Format File -InputPath 'examples/'  -Module 'PSRule.Rules.Azure' -Outcome Fail, Error
+    ```
 
-  ## Fixes still TODO ##
+## Rule violations still to be fixed ##
 
 For the sake of this demonstration, I have deliberately left some issues in the Bicep template that need to be fixed. When you run PSRule you should see that there are still some rules that show a **Fail**. Those are as follows:
 

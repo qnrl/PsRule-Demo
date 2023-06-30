@@ -5,20 +5,17 @@ ignorePaths:
   - cspell.config.yaml
 dictionaryDefinitions: []
 words:
+  - Codespace
+  - Codespaces
   - psrule
+  - winget
 ignoreWords: []
 import: []
-language: 'en,en-GB'
-
+language: en,en-GB
 enabled: true
-description: >
+description: |
   This configuration defines the default spellcheck settings for this workspace.
-
-# Ensure that any comments in code files to controll cSpell are correct.
 validateDirectives: true
-
-# These apply to all files unless otherwise specified. They're defined in NPM modules that are
-# available by default with the extension.
 dictionaries:
   - azureTerms
   - companies
