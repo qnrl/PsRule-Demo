@@ -2,9 +2,9 @@
 
 In thinking how to explain what PsRule is and how it works I decided that using a specific implementation called `PsRule for Azure` to check a Bicep template is a good way to demonstrate how to use `PsRule` more generally.
 
-[PsRule for Azure](https://azure.github.io/PsRule.Rules.Azure/about/) is a set of rules that you can use to analyse Infrastrcuture-as-Code (IaC) templates, written in Bicep, against a set of rules that implement [Azure Well Architected Framework (WAF)](https://learn.microsoft.com/azure/architecture/framework/) principles
+[PsRule for Azure](https://azure.github.io/PSRule.Rules.Azure/about/) is a set of rules that you can use to analyse Infrastrcuture-as-Code (IaC) templates, written in Bicep, against a set of rules that implement [Azure Well Architected Framework (WAF)](https://learn.microsoft.com/azure/architecture/framework/) principles
 
-This is a 'simplest possible' sample project to show how to [use PsRule for Azure with a Bicep template](https://azure.github.io/PsRule.Rules.Azure/using-bicep/). It can also be used with ARM Templates and Terraform.
+This is a 'simplest possible' sample project to show how to [use PsRule for Azure with a Bicep template](https://azure.github.io/PSRule.Rules.Azure/using-bicep/). It can also be used with ARM Templates and Terraform.
 
 This example focusses on executing the rule-checking process locally on Windows or in a Dev Container (or GitHub Codespace) but it can also be used in a GitHub Action or Azure DevOps Pipeline.
 
@@ -24,9 +24,9 @@ Once you have seen it running you can choose to install the tools locally on you
 
 1. Clone this repository to your local machine
 
-2. If you haven't already, set up PsRule.Rules.Azure Modules and associated dependencies on your local machine.
+2. If you haven't already, set up PSRule.Rules.Azure Modules and associated dependencies on your local machine.
 
-    See also [local module installation](https://azure.github.io/PsRule.Rules.Azure/install-instructions/?WT.mc_id=modinfra-72253-socuff#getting-the-modules)
+    See also [local module installation](https://azure.github.io/PSRule.Rules.Azure/install-instructions/?WT.mc_id=modinfra-72253-socuff#getting-the-modules)
 
     ```powershell
     # In Powershell on Windows
@@ -35,7 +35,7 @@ Once you have seen it running you can choose to install the tools locally on you
     winget install -s winget -e --id "Microsoft.Bicep"
 
     Install-Module -Name 'Az' -Repository PSGallery -Force
-    Install-Module -Name 'PsRule.Rules.Azure' -Repository PSGallery -Scope CurrentUser
+    Install-Module -Name 'PSRule.Rules.Azure' -Repository PSGallery -Scope CurrentUser
     ```
 
 3. Open the project in VS Code.
@@ -55,21 +55,21 @@ Once you have seen it running you can choose to install the tools locally on you
 Run the following command in Powershell to invoke PsRule against all files in the `examples/` folder (there is just one Bicep template in this example)):
 
 ```powershell
-Invoke-PsRule -InputPath 'examples/' -Module 'PsRule.Rules.Azure' -Outcome Fail, Error -As Summary
+Invoke-PSRule -InputPath 'examples/' -Module 'PSRule.Rules.Azure' -Outcome Fail, Error -As Summary
 ```
 
 You should see output that looks like this:
 
-[![assets/PsRule-invoke.png](assets/psrule-invoke.png)](assets/psrule-invoke.png)
+[![assets/psrule-invoke.png](assets/psrule-invoke.png)](assets/psrule-invoke.png)
 
 You can also run the following variations to see what happens:
 
 ```powershell
 # In Powershell on Windows or in a Dev Container (Ubuntu Linux)
-Invoke-PsRule -InputPath 'examples/' -Module 'PsRule.Rules.Azure' -As Summary
-Invoke-PsRule -InputPath 'examples/' -Module 'PsRule.Rules.Azure'
-Invoke-PsRule -InputPath 'examples/' -Module 'PsRule.Rules.Azure' -As Summary -OutputPath 'output/summary.json'
-Assert-PsRule -Format File -InputPath 'examples/'  -Module 'PsRule.Rules.Azure' -Outcome Fail, Error
+Invoke-PSRule -InputPath 'examples/' -Module 'PSRule.Rules.Azure' -As Summary
+Invoke-PSRule -InputPath 'examples/' -Module 'PSRule.Rules.Azure'
+Invoke-PSRule -InputPath 'examples/' -Module 'PSRule.Rules.Azure' -As Summary -OutputPath 'output/summary.json'
+Assert-PSRule -Format File -InputPath 'examples/'  -Module 'PSRule.Rules.Azure' -Outcome Fail, Error
 ```
 
 ## Rule violations still to be fixed ##
@@ -78,9 +78,9 @@ For the sake of this demonstration, I have deliberately left some issues in the 
 
 |          Rule          |                                             Reference                                              |
 | ---------------------- | -------------------------------------------------------------------------------------------------- |
-| Azure.Resource.UseTags | <https://azure.github.io/PsRule.Rules.Azure/en/rules/Azure.Resource.UseTags/#configure-with-bicep> |
-| Azure.Storage.Firewall | <https://azure.github.io/PsRule.Rules.Azure/en/rules/Azure.Storage.Firewall/#configure-with-bicep> |
+| Azure.Resource.UseTags | <https://azure.github.io/PSRule.Rules.Azure/en/rules/Azure.Resource.UseTags/#configure-with-bicep> |
+| Azure.Storage.Firewall | <https://azure.github.io/PSRule.Rules.Azure/en/rules/Azure.Storage.Firewall/#configure-with-bicep> |
 
 ## References ##
 
-This project is inspired by this blog post - [PsRule: Introduction to Infrastructure As Code (IAC) Testing](https://techcommunity.microsoft.com/t5/itops-talk-blog/PsRule-introduction-to-infrastructure-as-code-iac-testing/ba-p/3580746)
+This project is inspired by this blog post - [PsRule: Introduction to Infrastructure As Code (IAC) Testing](https://techcommunity.microsoft.com/t5/itops-talk-blog/psrule-introduction-to-infrastructure-as-code-iac-testing/ba-p/3580746)
