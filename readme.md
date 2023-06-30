@@ -8,15 +8,17 @@ This is a 'simplest possible' sample project to show how to [use PsRule for Azur
 
 This example focusses on executing the rule-checking process locally on Windows or in a Dev Container (or GitHub Codespace) but it can also be used in a GitHub Action or Azure DevOps Pipeline.
 
-There is a Bicep template that represents a simple Azure Storage Account which implements some of the best practices required by the rules in `PsRule for Azure` but not all of them. The template is in the `examples/` folder. When we run the rules engine, we will see that there are some rules that fail. This is deliberate as I want to show how to use the rules engine to identify issues in the template.
+There is a [Bicep template](examples/storage.bicep) that represents a simple Azure Storage Account which implements some of the best practices required by the rules in `PsRule for Azure` but not all of them. The template is in the `examples/` folder. When we run the rules engine, we will see that there are some rules that fail. This is deliberate as I want to show how to use the rules engine to identify issues in the template.
 
 ## Running in a GitHub Codespace ##
 
-> *This is the easiest option as all the dependencies are already installed in the Codespace.*
+> *This is the easiest option for seeing this in action as all the dependencies are already installed in the Codespace.*
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/qnrl/PsRule-Demo?quickstart=1)
 
 Then jump to [Executing PsRule](#executing-psrule)
+
+Once you have seen it running you can choose to install the tools locally on your machine and use PsRule to check your own Bicep templates.
 
 ## Running locally on Windows ##
 
@@ -39,6 +41,8 @@ Then jump to [Executing PsRule](#executing-psrule)
 3. Open the project in VS Code.
 
 ## Running in a Dev Container ##
+
+> *This is a way to avoid installing the dependencies on your local machine's operating system. You can use a Dev Container to run the tools in a container on your local machine. This method can still be used with your own projects containing Bicep templates, if you add a .devcontainer folder, similar to the one in this repository, into your other Bicep projects.*
 
 1. Clone this repository to your local machine
 
