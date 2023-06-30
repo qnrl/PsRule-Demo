@@ -14,7 +14,7 @@ This is the easiest option as all the dependencies are already installed in the 
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/qnrl/PsRule-Demo?quickstart=1)
 
-Then jump to [Executing PsRule in the workspace](#executing-PsRule)
+Then jump to [Executing PsRule](#executing-psrule)
 
 ## Running locally on Windows ##
 
@@ -56,7 +56,7 @@ Then jump to [Executing PsRule in the workspace](#executing-PsRule)
 
     You should see output that looks like this:
 
-    [![assets/PsRule-invoke.png](assets/PsRule-invoke.png)](assets/PsRule-invoke.png)
+    [![assets/PsRule-invoke.png](assets/psrule-invoke.png)](assets/psrule-invoke.png)
 
     You can also run the following variations to see what happens:
 
