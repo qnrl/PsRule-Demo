@@ -50,19 +50,29 @@ Then jump to [Executing PSRule in the workspace](#executing-psrule-in-the-worksp
 
 1. Execute the following commands in Powershell to invoke PsRule for this project:
 
-  In a Dev Container you will have a Bash shell by default so you need to type `pwsh` to get a Powershell session
+  In a Dev Container or GitHub Codespace you will have a Bash shell by default so you need to type `pwsh` to get a Powershell session.
 
-  Run the following commands in Powershell to invoke PsRule against files in the `examples/` folder:
+  Run the following command in Powershell to invoke PsRule against all files in the `examples/` folder (there is just one Bicep template in this example)):
+
+  ```powershell
+  Invoke-PSRule -InputPath 'examples/' -Module 'PSRule.Rules.Azure' -Outcome Fail, Error -As Summary
+  ```
+
+  You should see output that looks like this:
+
+[![assets/psrule-invoke.png](assets/psrule-invoke.png)](assets/psrule-invoke.png)
+
+  You can also run the following variations to see what happens:
 
   ```powershell
   # In Powershell on Windows or in a Dev Container (Ubuntu Linux)
   Invoke-PSRule -InputPath 'examples/' -Module 'PSRule.Rules.Azure' -As Summary
   Invoke-PSRule -InputPath 'examples/' -Module 'PSRule.Rules.Azure'
   Invoke-PSRule -InputPath 'examples/' -Module 'PSRule.Rules.Azure' -As Summary -OutputPath 'output/summary.json'
-  Assert-PSRule -Format File -InputPath 'examples/'  -Module 'PSRule.Rules.Azure' -Outcome Fail, Error;
+  Assert-PSRule -Format File -InputPath 'examples/'  -Module 'PSRule.Rules.Azure' -Outcome Fail, Error
   ```
 
-## Fixes still TODO ##
+  ## Fixes still TODO ##
 
 For the sake of this demonstration, I have deliberately left some issues in the Bicep template that need to be fixed. When you run PSRule you should see that there are still some rules that show a **Fail**. Those are as follows:
 
