@@ -2,11 +2,13 @@
 
 In thinking how to explain what PSRule is and how it works I decided that using a specific implementation called `PSRule for Azure` to check a Bicep template is a good way to demonstrate how to use `PSRule` more generally.
 
-[PSRule for Azure](https://azure.github.io/PSRule.Rules.Azure/about/) is a set of rules that you can use to analyse Bicep IaC templates against a set of rules that implement [Azure Well Architected Framework (WAF)](https://learn.microsoft.com/azure/architecture/framework/) principles
+[PSRule for Azure](https://azure.github.io/PSRule.Rules.Azure/about/) is a set of rules that you can use to analyse Infrastrcuture-as-Code (IaC) templates, written in Bicep, against a set of rules that implement [Azure Well Architected Framework (WAF)](https://learn.microsoft.com/azure/architecture/framework/) principles
 
 This is a 'simplest possible' sample project to show how to [use PsRule for Azure with a Bicep template](https://azure.github.io/PSRule.Rules.Azure/using-bicep/). It can also be used with ARM Templates and Terraform.
 
 This example focusses on executing the rule-checking process locally on Windows or in a Dev Container (or GitHub Codespace) but it can also be used in a GitHub Action or Azure DevOps Pipeline.
+
+There is a Bicep template that represents a simple Azure Storage Account which implements some of the best practices required by the rules in `PsRule for Azure` but not all of them. The template is in the `examples/` folder. When we run the rules engine, we will see that there are some rules that fail. This is deliberate as I want to show how to use the rules engine to identify issues in the template.
 
 ## Running in a GitHub Codespace ##
 
