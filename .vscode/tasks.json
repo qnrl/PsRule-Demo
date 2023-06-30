@@ -1,0 +1,30 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "PSRule",
+      "problemMatcher": [
+        "$PSRule"
+      ],
+      "modules": [
+        "PSRule.Rules.Azure",
+      ],
+      "presentation": {
+        "clear": true,
+        "panel": "dedicated",
+        "focus": false
+      },
+      "label": "PSRule: Run analysis",
+      "detail": "Run analysis for current workspace.",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "inputPath": "examples/",
+      "outcome": [
+        "Fail",
+        "Error",
+      ]
+    }
+  ]
+}

@@ -1,4 +1,5 @@
-﻿## How to use PsRule with Bicep IaC templates ##
+﻿# How to use PsRule with Bicep IaC templates #
+
 This is a sample project to show how to [use PsRule with Bicep](https://azure.github.io/PSRule.Rules.Azure/using-bicep/).
 
 1. Set up PsRule on your local machine. See [installation](https://azure.github.io/PSRule.Rules.Azure/install-instructions/?WT.mc_id=modinfra-72253-socuff#installation)
@@ -10,14 +11,13 @@ Invoke-PSRule -InputPath 'examples/' -Module 'PSRule.Rules.Azure'
 Invoke-PSRule -InputPath 'examples/' -Module 'PSRule.Rules.Azure' -As Summary -OutputPath 'output/summary.json'
 ```
 
-### Fixes still TODO: ###
+## Fixes still TODO ##
 
 | Rule | Reference |
 |---|---|
-| Azure.Resource.UseTags | https://azure.github.io/PSRule.Rules.Azure/en/rules/Azure.Resource.UseTags/#configure-with-bicep |
-| Azure.Storage.Firewall | https://azure.github.io/PSRule.Rules.Azure/en/rules/Azure.Storage.Firewall/#configure-with-bicep |
+| Azure.Resource.UseTags | <https://azure.github.io/PSRule.Rules.Azure/en/rules/Azure.Resource.UseTags/#configure-with-bicep> |
+| Azure.Storage.Firewall | <https://azure.github.io/PSRule.Rules.Azure/en/rules/Azure.Storage.Firewall/#configure-with-bicep> |
 
-### Notes: ###
+## References ##
 
 This project is inspired by this blog post - [PsRule: Introduction to Infrastructure As Code (IAC) Testing](https://techcommunity.microsoft.com/t5/itops-talk-blog/psrule-introduction-to-infrastructure-as-code-iac-testing/ba-p/3580746)
-
