@@ -89,6 +89,8 @@ I plan to also try out rules from [PsRule.Rules.CAF](https://github.com/microsof
 
 This project is inspired by this blog post - [PsRule: Introduction to Infrastructure As Code (IAC) Testing](https://techcommunity.microsoft.com/t5/itops-talk-blog/psrule-introduction-to-infrastructure-as-code-iac-testing/ba-p/3580746)
 
-[PsRule](https://github.com/microsoft/PSRule) is an open source project hosted by Microsoft and maintained by @BernieWhite and @ms-sambell
+[PsRule](https://github.com/microsoft/PSRule) is an open source project hosted by Microsoft and maintained by [@BernieWhite](https://github.com/BernieWhite) and [@ms-sambell](https://github.com/ms-sambell)
 
-This repository was created by @rohancragg
+[PsRule.Rules.Azure](https://github.com/Azure/PSRule.Rules.Azure) is an open source project hosted by Microsoft and maintained by [@BernieWhite](https://github.com/BernieWhite)
+
+This repository was created by [@rohancragg](https://github.com/rohancragg)
