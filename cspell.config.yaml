@@ -7,6 +7,7 @@ dictionaryDefinitions: []
 words:
   - Codespace
   - Codespaces
+  - devcontainer
   - psrule
   - winget
 ignoreWords: []

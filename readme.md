@@ -2,7 +2,7 @@
 
 In thinking how to explain what PsRule is and how it works I decided that using a specific implementation called `PsRule for Azure` to check a Bicep template is a good way to demonstrate how to use `PsRule` more generally.
 
-[PsRule for Azure](https://azure.github.io/PSRule.Rules.Azure/about/) is a set of rules that you can use to analyse Infrastrcuture-as-Code (IaC) templates, written in Bicep, against a set of rules that implement [Azure Well Architected Framework (WAF)](https://learn.microsoft.com/azure/architecture/framework/) principles
+[PsRule for Azure](https://azure.github.io/PSRule.Rules.Azure/about/) is a set of rules that you can use to analyse Infrastructure-as-Code (IaC) templates, written in Bicep, against a set of rules that implement [Azure Well Architected Framework (WAF)](https://learn.microsoft.com/azure/architecture/framework/) principles
 
 This is a 'simplest possible' sample project to show how to [use PsRule for Azure with a Bicep template](https://azure.github.io/PSRule.Rules.Azure/using-bicep/). It can also be used with ARM Templates and Terraform.
 
@@ -81,6 +81,14 @@ For the sake of this demonstration, I have deliberately left some issues in the 
 | Azure.Resource.UseTags | <https://azure.github.io/PSRule.Rules.Azure/en/rules/Azure.Resource.UseTags/#configure-with-bicep> |
 | Azure.Storage.Firewall | <https://azure.github.io/PSRule.Rules.Azure/en/rules/Azure.Storage.Firewall/#configure-with-bicep> |
 
+## Next Steps ##
+
+I plan to also try out rules from [PsRule.Rules.CAF](https://github.com/microsoft/PSRule.Rules.CAF). I will update this repository when I have done that.
+
 ## References ##
 
 This project is inspired by this blog post - [PsRule: Introduction to Infrastructure As Code (IAC) Testing](https://techcommunity.microsoft.com/t5/itops-talk-blog/psrule-introduction-to-infrastructure-as-code-iac-testing/ba-p/3580746)
+
+[PsRule](https://github.com/microsoft/PSRule) is an open source project hosted by Microsoft and maintained by @BernieWhite and @ms-sambell
+
+This repository was created by @rohancragg
