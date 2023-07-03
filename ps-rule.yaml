@@ -1,6 +1,8 @@
 ﻿## YAML: Enable expansion for Bicep source files.
 configuration:
   AZURE_BICEP_FILE_EXPANSION: true
+  AZURE_BICEP_PARAMS_FILE_EXPANSION: true
+  AZURE_PARAMETER_FILE_EXPANSION: true
   AZURE_BICEP_FILE_EXPANSION_RECURSIVE: true
   AZURE_BICEP_FILE_EXPANSION_MAX_DEPTH: 10
   AZURE_BICEP_FILE_EXPANSION_MAX_FILES: 100
@@ -8,3 +10,21 @@ configuration:
 rule:
   exclude:
     - "Azure.Storage.UseReplication"
+
+include:
+  module:
+    - PSRule.Rules.Azure
+
+requires:
+  PSRule.Rules.Azure: 'v1.27.3'
+
+output:
+  as: Detail
+  banner: Default
+  culture: [en-GB]
+  encoding: Default
+  footer: Default
+  format: None
+  outcome: Processed
+  sarifProblemsOnly: true
+  style: Detect

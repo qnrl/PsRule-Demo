@@ -79,3 +79,5 @@ Rules processed: 14, failed: 2, errored: 0
 Run 5b16feb155ef45ec56578a53cc558e0932d37b11 completed in 00:00:16.7414564
 Assert-PSRule: One or more rules reported failure.
 #>
+
+Invoke-PSRule -InputPath 'examples/' -Module 'PSRule.Rules.Azure' -OutputFormat Markdown -OutputPath 'out/results.md'

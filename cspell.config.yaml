@@ -9,6 +9,7 @@ words:
   - Codespaces
   - devcontainer
   - psrule
+  - sarif
   - winget
 ignoreWords: []
 import: []
