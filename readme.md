@@ -22,7 +22,7 @@ Once you have seen it running you can choose to install the tools locally on you
 
 ## Running locally on Windows ##
 
-1. Clone this repository to your local machine
+1. Clone this repository to your local machine (if you think you might make edits that you'd like to keep you should also [fork the repository](https://docs.github.com/en/get-started/quickstart/fork-a-repo) first).
 
 2. If you haven't already, set up PSRule.Rules.Azure Modules and associated dependencies on your local machine.
 
