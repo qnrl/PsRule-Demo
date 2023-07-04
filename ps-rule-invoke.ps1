@@ -1,4 +1,15 @@
 ﻿####################################################################################################
+# Install prerequisites:
+####################################################################################################
+winget install -s winget -e --id "Microsoft.DotNet.Runtime.6"
+winget install -s winget -e --id "Microsoft.PowerShell"
+winget install -s winget -e --id "Microsoft.Bicep"
+
+Install-Module -Name 'Az' -Repository PSGallery -Force
+Install-Module -Name 'PSRule.Rules.Azure' -Repository PSGallery -Scope CurrentUser
+
+
+####################################################################################################
 # Run PSRule:
 ####################################################################################################
 
@@ -36,7 +47,7 @@ Azure.Resource.UseTags              Fail       Consider tagging resources using 
 Azure.Storage.Firewall              Fail       Consider configuring storage firewall to restrict network access to permitted clients only. Also consider enforcing this sett…
 #>
 
-Assert-PSRule -Format File -InputPath 'examples/'  -Module 'PSRule.Rules.Azure' -Outcome Fail, Error;
+Assert-PSRule -InputPath 'examples/'  -Module 'PSRule.Rules.Azure' -Outcome Fail, Error;
 <# Expected output:
 > store5f3e65afb63bb : Microsoft.Storage/storageAccounts [7/9]
 
@@ -81,3 +92,9 @@ Assert-PSRule: One or more rules reported failure.
 #>
 
 Invoke-PSRule -InputPath 'examples/' -Module 'PSRule.Rules.Azure' -OutputFormat Markdown -OutputPath 'out/results.md'
+
+# Read resources in from file
+$resources = Get-Content -Path 'examples/resources.json' | ConvertFrom-Json;
+
+# Process resources
+$resources | Invoke-PSRule  -Module 'PSRule.Rules.Azure';

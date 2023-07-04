@@ -1,0 +1,48 @@
+﻿[
+  {
+      "Name": "storage",
+      "ResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Storage/storageAccounts/storage",
+      "ResourceName": "storage",
+      "ResourceType": "Microsoft.Storage/storageAccounts",
+      "Kind": "Storage",
+      "ResourceGroupName": "test-rg",
+      "Location": "eastus2",
+      "SubscriptionId": "00000000-0000-0000-0000-000000000000",
+      "Tags": {
+          "role": "deployment",
+          "environment": "production"
+      },
+      "Properties": {
+          "networkAcls": {
+              "bypass": "AzureServices",
+              "virtualNetworkRules": [],
+              "ipRules": [],
+              "defaultAction": "Allow"
+          },
+          "supportsHttpsTrafficOnly": false,
+          "encryption": {
+              "services": {
+                  "file": {
+                      "enabled": true
+                  },
+                  "blob": {
+                      "enabled": true
+                  }
+              },
+              "keySource": "Microsoft.Storage"
+          },
+          "primaryEndpoints": {
+              "blob": "https://storage.blob.core.windows.net/",
+              "queue": "https://storage.queue.core.windows.net/",
+              "table": "https://storage.table.core.windows.net/",
+              "file": "https://storage.file.core.windows.net/"
+          },
+          "primaryLocation": "eastus2",
+          "statusOfPrimary": "available"
+      },
+      "Sku": {
+          "name": "Standard_LRS",
+          "tier": "Standard"
+      }
+  }
+]
