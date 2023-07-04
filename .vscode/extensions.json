@@ -10,5 +10,6 @@
     "yzane.markdown-pdf",
     "esbenp.prettier-vscode",
     "davidanson.vscode-markdownlint",
+    "vsls-contrib.codetour"
   ]
 }
