@@ -2,11 +2,12 @@
 configuration:
   AZURE_BICEP_FILE_EXPANSION: true
   AZURE_BICEP_PARAMS_FILE_EXPANSION: true
-  AZURE_PARAMETER_FILE_EXPANSION: true
-  AZURE_BICEP_FILE_EXPANSION_RECURSIVE: true
-  AZURE_BICEP_FILE_EXPANSION_MAX_DEPTH: 10
-  AZURE_BICEP_FILE_EXPANSION_MAX_FILES: 100
-  AZURE_BICEP_FILE_EXPANSION_MAX_BYTES: 10485760
+
+input:
+  pathIgnore:
+  # Exclude bicepconfig.json
+  - 'bicepconfig.json'
+
 rule:
   exclude:
     - "Azure.Storage.UseReplication"
@@ -18,13 +19,21 @@ include:
 requires:
   PSRule.Rules.Azure: 'v1.27.3'
 
+execution:
+  aliasReference: Warn
+  duplicateResourceId: Error
+  languageMode: FullLanguage
+  initialSessionState: BuiltIn
+  invariantCulture: Warn
+  ruleExcluded: Ignore
+  ruleInconclusive: Warn
+  ruleSuppressed: Warn
+  suppressionGroupExpired: Warn
+  unprocessedObject: Ignore
+
 output:
-  as: Detail
-  banner: Default
-  culture: [en-GB]
-  encoding: Default
-  footer: Default
-  format: None
-  outcome: Processed
-  sarifProblemsOnly: true
-  style: Detect
+   as: Detail
+   banner: Default
+   culture: [en-GB]
+   encoding: Default
+   footer: Default

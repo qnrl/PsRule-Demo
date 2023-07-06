@@ -5,6 +5,7 @@ ignorePaths:
   - cspell.config.yaml
 dictionaryDefinitions: []
 words:
+  - bicepconfig
   - Codespace
   - Codespaces
   - devcontainer

@@ -1,6 +1,6 @@
 # PSRule
 
-## C:\Users\RohanC\src\learn\psrule\examples\storage.bicepparam : Microsoft.Resources/deployments
+## /workspaces/PsRule-Demo/examples/bicep/storage.bicepparam : Microsoft.Resources/deployments
 
 - [X] Azure.Deployment.OutputSecretValue
 - [X] Azure.Deployment.AdminUsername
