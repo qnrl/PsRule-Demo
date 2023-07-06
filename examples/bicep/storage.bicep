@@ -1,13 +1,13 @@
 ﻿@description('Storage Account type')
 @allowed([
-  'Premium_LRS'
-  'Premium_ZRS'
-  'Standard_GRS'
-  'Standard_GZRS'
-  'Standard_LRS'
-  'Standard_RAGRS'
-  'Standard_RAGZRS'
-  'Standard_ZRS'
+    'Premium_LRS'
+    'Premium_ZRS'
+    'Standard_GRS'
+    'Standard_GZRS'
+    'Standard_LRS'
+    'Standard_RAGRS'
+    'Standard_RAGZRS'
+    'Standard_ZRS'
 ])
 param storageAccountType string
 
@@ -18,30 +18,37 @@ param location string
 param storageAccountName string
 
 resource sa 'Microsoft.Storage/storageAccounts@2022-09-01' = {
-  name: storageAccountName
-  location: location
-  sku: {
-    name: storageAccountType
-  }
-  kind: 'StorageV2'
-  properties: {
-    supportsHttpsTrafficOnly: true
-    minimumTlsVersion: 'TLS1_2'
-    allowBlobPublicAccess: false
-  }
-  resource blobs 'blobServices@2022-09-01' = {
-    name: 'default'
-    properties: {
-      deleteRetentionPolicy: {
-        enabled: true
-        days: 7
-      }
-      containerDeleteRetentionPolicy: {
-        enabled: true
-        days: 7
-      }
+    name: storageAccountName
+    location: location
+    sku: {
+        name: storageAccountType
     }
-  }
+    kind: 'StorageV2'
+    properties: {
+        supportsHttpsTrafficOnly: true
+        minimumTlsVersion: 'TLS1_2'
+        allowBlobPublicAccess: false
+        networkAcls: {
+            defaultAction: 'Deny'
+        }
+    }
+    tags: {
+        environment: 'Production'
+        costCode: '123456'
+    }
+    resource blobs 'blobServices@2022-09-01' = {
+        name: 'default'
+        properties: {
+            deleteRetentionPolicy: {
+                enabled: true
+                days: 7
+            }
+            containerDeleteRetentionPolicy: {
+                enabled: true
+                days: 7
+            }
+        }
+    }
 }
 
 output storageAccountName string = storageAccountName
