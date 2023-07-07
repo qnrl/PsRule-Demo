@@ -8,6 +8,7 @@
     "msazurermtools.azurerm-vscode-tools",
     "ms-azuretools.vscode-bicep",
     "ms-azure-devops.azure-pipelines",
+    "github.vscode-github-actions",
     "shuworks.vscode-table-formatter",
     "streetsidesoftware.code-spell-checker",
     "wmaurer.change-case",
