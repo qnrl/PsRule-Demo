@@ -1,0 +1,33 @@
+#
+# Analyze repository with PSRule
+#
+
+# For PSRule documentation see:
+# https://aka.ms/ps-rule
+
+# For action details see:
+# https://aka.ms/ps-rule-action
+
+name: Analyze repository
+
+# Run for main or PRs against main
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  analyze:
+    name: Analyze repository
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Run PSRule analysis
+        uses: Microsoft/ps-rule@v2.9.0
+        with:
+          modules: PSRule.Rules.Azure
