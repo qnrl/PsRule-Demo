@@ -6,5 +6,9 @@
 		}
 	],
 	"settings": {
-	}
+        "workbench.colorTheme": "GitHub Dark",
+        "redhat.telemetry.enabled": true,
+        "powershell.integratedConsole.showOnStartup": false,
+        "powershell.integratedConsole.focusConsoleOnExecute": false
+    }
 }

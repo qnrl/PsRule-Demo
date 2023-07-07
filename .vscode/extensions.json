@@ -4,11 +4,16 @@
   "recommendations": [
     "ms-vscode.powershell",
     "bewhite.psrule-vscode-preview",
+    "msazurermtools.azurerm-vscode-tools",
+    "ms-azuretools.vscode-bicep",
+    "ms-azure-devops.azure-pipelines",
     "shuworks.vscode-table-formatter",
     "streetsidesoftware.code-spell-checker",
     "wmaurer.change-case",
     "esbenp.prettier-vscode",
     "davidanson.vscode-markdownlint",
-    "vsls-contrib.codetour"
+    "vsls-contrib.codetour",
+    "ms-azuretools.vscode-azureresourcegroups",
+    "editorconfig.editorconfig"
   ]
 }
