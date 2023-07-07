@@ -45,14 +45,14 @@ input:
 
   # Exclude bicepconfig.json
   - 'bicepconfig.json'
-  
+
   # ignore all bicep files except the ones that have been created to test modules
   - 'modules/**/*.bicep'
   - '!modules/**/*.tests.bicep'
 
 rule:
   exclude:
-    - "Azure.Storage.UseReplication"
+    - Azure.Storage.UseReplication
 
 include:
   module:
