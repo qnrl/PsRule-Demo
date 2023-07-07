@@ -1,0 +1,27 @@
+{
+  "workbench.colorTheme": "GitHub Dark",
+  "redhat.telemetry.enabled": true,
+  "powershell.integratedConsole.showOnStartup": false,
+  "powershell.integratedConsole.focusConsoleOnExecute": false,
+  "files.associations": {
+    "**/.pipelines/**/*.yaml": "azure-pipelines"
+  },
+  "editor.insertSpaces": true,
+  "[json]": {
+    "editor.detectIndentation": false,
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2,
+    "files.insertFinalNewline": true
+  },
+  "[jsonc]": {
+    "editor.detectIndentation": false,
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2,
+    "files.insertFinalNewline": true
+  },
+  "[markdown]": {
+    "editor.detectIndentation": false,
+    "editor.tabSize": 2,
+    "files.insertFinalNewline": true
+  }
+}

@@ -1,10 +1,42 @@
-﻿## YAML: Enable expansion for Bicep source files.
+﻿#
+# PSRule for Azure configuration
+#
+
+# Please see the documentation for all configuration options:
+# https://aka.ms/ps-rule/options
+# https://aka.ms/ps-rule-azure/options
+
+# Configure binding for local rules.
+binding:
+  preferTargetInfo: true
+  targetType:
+  - type
+  - resourceType
+
+requires:
+  PSRule: '@pre >=2.9.0'
+  PSRule.Rules.Azure: '@pre >=1.27.3'
+
 configuration:
+  # Enable automatic expansion of JSON parameter files.
+  AZURE_PARAMETER_FILE_EXPANSION: true
+
+  # Enable automatic expansion of Azure Bicep source files.
   AZURE_BICEP_FILE_EXPANSION: true
+
+  # Configures the number of seconds to wait for build Bicep files.
+  AZURE_BICEP_FILE_EXPANSION_TIMEOUT: 10
+
+  # Enable automatic expansion of Bicep parameter files.
   AZURE_BICEP_PARAMS_FILE_EXPANSION: true
 
 input:
   pathIgnore:
+  # Ignore other files in the repository.
+  - '.vscode/'
+  - '.github/'
+  - '*.md'
+
   # Exclude bicepconfig.json
   - 'bicepconfig.json'
 
@@ -15,9 +47,6 @@ rule:
 include:
   module:
     - PSRule.Rules.Azure
-
-requires:
-  PSRule.Rules.Azure: 'v1.27.3'
 
 execution:
   aliasReference: Warn

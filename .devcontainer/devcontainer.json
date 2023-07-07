@@ -1,9 +1,8 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
 {
-  "name": "Ubuntu",
-  // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-  "image": "mcr.microsoft.com/devcontainers/base:jammy",
+  "$schema": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainer.schema.json",
+  "name": "PSRule Demo on Ubuntu Container",
   // Features to add to the dev container. More info: https://containers.dev/features.
   "features": {
     "ghcr.io/devcontainers/features/git:1": {
@@ -39,6 +38,7 @@
   "customizations": {
     "vscode": {
       "extensions": [
+        "ms-azuretools.vscode-docker",
         "ms-vscode.powershell",
         "bewhite.psrule-vscode-preview",
         "msazurermtools.azurerm-vscode-tools",
@@ -54,9 +54,23 @@
         "editorconfig.editorconfig"
       ],
       "settings": {
+        "terminal.integrated.defaultProfile.linux": "pwsh",
+        "terminal.integrated.profiles.linux": {
+          "pwsh": {
+            "path": "/opt/microsoft/powershell/7/pwsh"
+          }
+        },
         "PSRule.notifications.showPowerShellExtension": false,
         "PSRule.notifications.showChannelUpgrade": false
       }
+    }
+  },
+  "onCreateCommand": "/opt/microsoft/powershell/7/pwsh -f .devcontainer/container-build.ps1",
+  "postStartCommand": "/opt/microsoft/powershell/7/pwsh -f .devcontainer/container-start.ps1",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "args": {
+      "VARIANT": "6.0-bullseye-slim"
     }
   },
   // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
