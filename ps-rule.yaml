@@ -1,11 +1,13 @@
-﻿## YAML: Enable expansion for Bicep source files.
-configuration:
+﻿configuration:
+  #Enable expansion for Bicep source files.
   AZURE_BICEP_FILE_EXPANSION: true
-  AZURE_BICEP_PARAMS_FILE_EXPANSION: true
 
 input:
   pathIgnore:
-  # Exclude bicepconfig.json
+  # ignore all bicep files except the ones that have been created to test modules
+  - modules/**/*.bicep
+  - '!modules/**/*.tests.bicep'
+  # ignore bicepconfig.json
   - 'bicepconfig.json'
 
 rule:
@@ -16,8 +18,8 @@ include:
   module:
     - PSRule.Rules.Azure
 
-requires:
-  PSRule.Rules.Azure: 'v1.27.3'
+# requires:
+#   PSRule.Rules.Azure: 'v1.27.3'
 
 execution:
   aliasReference: Warn
@@ -32,8 +34,8 @@ execution:
   unprocessedObject: Ignore
 
 output:
-   as: Detail
-   banner: Default
-   culture: [en-GB]
-   encoding: Default
-   footer: Default
+  as: Detail
+  banner: Default
+  culture: [en-GB]
+  encoding: Default
+  footer: Default
