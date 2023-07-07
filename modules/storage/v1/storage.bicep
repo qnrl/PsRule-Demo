@@ -36,17 +36,30 @@ resource sa 'Microsoft.Storage/storageAccounts@2022-09-01' = {
         environment: 'Production'
         costCode: '123456'
     }
-    resource blobs 'blobServices@2022-09-01' = {
-        name: 'default'
-        properties: {
-            deleteRetentionPolicy: {
-                enabled: true
-                days: 7
-            }
-            containerDeleteRetentionPolicy: {
-                enabled: true
-                days: 7
-            }
+}
+
+resource blobs 'Microsoft.Storage/storageAccounts/blobServices@2022-09-01' = {
+    name: 'default'
+    parent: sa
+    properties: {
+        deleteRetentionPolicy: {
+            enabled: true
+            days: 7
+        }
+        containerDeleteRetentionPolicy: {
+            enabled: true
+            days: 7
+        }
+    }
+}
+
+resource files 'Microsoft.Storage/storageAccounts/fileServices@2022-09-01' = {
+    name: 'default'
+    parent: sa
+    properties: {
+        shareDeleteRetentionPolicy: {
+            enabled: true
+            days: 7
         }
     }
 }
