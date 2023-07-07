@@ -20,11 +20,6 @@
         "kind": "build",
         "isDefault": true
       },
-      "inputPath": "examples/",
-      "outcome": [
-        "Fail",
-        "Error",
-      ]
     }
   ]
 }
