@@ -2,6 +2,7 @@ version: "0.2"
 ignorePaths:
   - .vscode/
   - devcontainer.json
+  - '**/settings.json'
   - cspell.config.yaml
 dictionaryDefinitions: []
 words:
