@@ -13,7 +13,7 @@ Install-Module -Name 'PSRule.Rules.Azure' -Repository PSGallery -Scope CurrentUs
 # Run PSRule:
 ####################################################################################################
 
-Invoke-PSRule -Format File -InputPath 'examples/bicep/*' -Module 'PSRule.Rules.Azure' -As Summary
+Invoke-PSRule -Format File -InputPath '.' -Module 'PSRule.Rules.Azure' -As Summary
 <# Expected output:
 
 RuleName                            Pass  Fail  Outcome
@@ -34,7 +34,7 @@ Azure.Storage.SecureTransfer        1     0     Pass
 Azure.Storage.BlobPublicAccess      1     0     Pass
 #>
 
-Invoke-PSRule -Format File -InputPath 'examples/bicep/' -Module 'PSRule.Rules.Azure' -Outcome Fail, Error;
+Invoke-PSRule -Format File -InputPath '.' -Module 'PSRule.Rules.Azure' -Outcome Fail, Error;
 <# Expected output:
 
    TargetName: sapsruledemoqrgc
@@ -46,7 +46,7 @@ Azure.Storage.Firewall              Fail       Consider configuring storage fire
 
 #>
 
-Assert-PSRule -Format File -InputPath 'examples/bicep/'  -Module 'PSRule.Rules.Azure' -Outcome Fail, Error;
+Assert-PSRule -Format File -InputPath '.'  -Module 'PSRule.Rules.Azure' -Outcome Fail, Error;
 <# Expected output:
 
 > sapsruledemoqrgc : Microsoft.Storage/storageAccounts [7/9]
@@ -92,10 +92,10 @@ Assert-PSRule: One or more rules reported failure.
 
 #>
 
-Invoke-PSRule -Format File -InputPath 'examples/bicep/' -Module 'PSRule.Rules.Azure' -OutputFormat Markdown -OutputPath 'out/results.md'
+Invoke-PSRule -Format File -InputPath '.' -Module 'PSRule.Rules.Azure' -OutputFormat Markdown -OutputPath 'out/results.md'
 
 # Read resources in from file
-$resources = Get-Content -Path 'examples/resources/resources.json' | ConvertFrom-Json;
+$resources = Get-Content -Path './resources/resources.json' | ConvertFrom-Json;
 
 # Process resources
 $resources | Invoke-PSRule  -Module 'PSRule.Rules.Azure';

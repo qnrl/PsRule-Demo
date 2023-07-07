@@ -38,13 +38,17 @@ configuration:
 
 input:
   pathIgnore:
-  # Ignore other files in the repository.
+    # Ignore other files in the repository.
   - '.vscode/'
   - '.github/'
   - '*.md'
 
   # Exclude bicepconfig.json
   - 'bicepconfig.json'
+  
+  # ignore all bicep files except the ones that have been created to test modules
+  - 'modules/**/*.bicep'
+  - '!modules/**/*.tests.bicep'
 
 rule:
   exclude:
@@ -67,8 +71,8 @@ execution:
   unprocessedObject: Ignore
 
 output:
-   as: Detail
-   banner: Default
-   culture: [en-GB]
-   encoding: Default
-   footer: Default
+  as: Detail
+  banner: Default
+  culture: [en-GB]
+  encoding: Default
+  footer: Default
