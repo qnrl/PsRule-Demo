@@ -12,7 +12,7 @@ This is a 'simplest possible' sample project to show how to [use PsRule for Azur
 
 This example focusses on executing the rule-checking process locally on Windows or in a Dev Container (or GitHub Codespace) but it can also be used in a GitHub Action or Azure DevOps Pipeline.
 
-There is a [Bicep template](examples/storage.bicep) that represents a simple Azure Storage Account which implements some of the best practices required by the rules in `PsRule for Azure` but not all of them. The template is in the `examples/` folder. When we run the rules engine, we will see that there are some rules that fail. This is deliberate as I want to show how to use the rules engine to identify issues in the template.
+There is a [Bicep template](modules/storage/v1/storage.bicep) that represents a simple Azure Storage Account which implements some of the best practices required by the rules in `PsRule for Azure` but not all of them. The template is in the `modules/storage/v1` folder. When we run the rules engine, we will see that there are some rules that fail. This is deliberate as I want to show how to use the rules engine to identify issues in the template.
 
 ## Running in a GitHub Codespace ##
 
@@ -54,12 +54,12 @@ Once you have seen it running you can choose to install the tools locally on you
 
 ## Executing PsRule ##
 
-> *In a Dev Container or GitHub Codespace you will have a Bash shell by default so you need to type `pwsh` to get a Powershell session.*
+> *In a Dev Container or GitHub Codespace you may have a Bash shell by default so you need to type `pwsh` to get a Powershell session.*
 
-Run the following command in Powershell to invoke PsRule against all files in the `examples/` folder (there is just one Bicep template in this example)):
+Run the following command in Powershell to invoke PsRule against all files in the `modules/storage/v1/` folder (there is just one Bicep template in this example)):
 
 ```powershell
-Invoke-PSRule -InputPath 'examples/' -Module 'PSRule.Rules.Azure' -Outcome Fail, Error -As Summary
+Invoke-PSRule -Format File -InputPath 'modules/storage/v1/' -Module 'PSRule.Rules.Azure' -Outcome Processed -As Summary
 ```
 
 You should see output that looks like this:
@@ -70,11 +70,14 @@ You can also run the following variations to see what happens:
 
 ```powershell
 # In Powershell on Windows or in a Dev Container (Ubuntu Linux)
-Invoke-PSRule -InputPath 'examples/' -Module 'PSRule.Rules.Azure' -As Summary
-Invoke-PSRule -InputPath 'examples/' -Module 'PSRule.Rules.Azure'
-Invoke-PSRule -InputPath 'examples/' -Module 'PSRule.Rules.Azure' -As Summary -OutputPath 'output/summary.json'
-Assert-PSRule -Format File -InputPath 'examples/'  -Module 'PSRule.Rules.Azure' -Outcome Fail, Error
+Invoke-PSRule -Format File -InputPath 'modules/storage/v1/' -Module 'PSRule.Rules.Azure' -Outcome Fail, Error -As Summary # this just shows failing tests
+Invoke-PSRule -Format File -InputPath 'modules/storage/v1/' -Module 'PSRule.Rules.Azure' # this shows a more detailed view
+Invoke-PSRule -Format File -InputPath 'modules/storage/v1/' -Module 'PSRule.Rules.Azure' -As Summary -OutputPath 'output/summary.json' # this exports the results to a file
+Assert-PSRule -Format File -InputPath 'modules/storage/v1/' -Module 'PSRule.Rules.Azure' -Outcome Fail, Error # this shows an even more detailed view closer to what is seen in the results from running in a CI/CD pipeline
 ```
+
+If you have a  look at [ps-rule.yaml](ps-rule.yaml) you will see a section that tells the PsRule engine to ignore certain paths. What this is doing is ensuring that we don't get problems with our template `storage.bicep` as this has required parameters with no default value (which is a good practice for modules). This would cause a problem when PsRule tries to expand the bicep template into a simulated resource deployment and so a convention for using PsRule is that we create a simple test bicep template (in this case in the `.tests/` folder). PsRule as configured here finds the test template but ignores the bicep module and so we avoid the error.
+
 
 ## Rule violations still to be fixed ##
 
@@ -85,7 +88,12 @@ For the sake of this demonstration, I have deliberately left some issues in the 
 | Azure.Resource.UseTags | <https://azure.github.io/PSRule.Rules.Azure/en/rules/Azure.Resource.UseTags/#configure-with-bicep> |
 | Azure.Storage.Firewall | <https://azure.github.io/PSRule.Rules.Azure/en/rules/Azure.Storage.Firewall/#configure-with-bicep> |
 
+There are lines commented out in the `storage.bicep` file which show how we would fix these failing rules.
+
+
 ## Next Steps ##
+
+I have also implemented a GitHub Action to run these rules on this repository when I commit changes in a pull request. I need to write about this.
 
 I plan to also try out rules from [PsRule.Rules.CAF](https://github.com/microsoft/PSRule.Rules.CAF). I will update this repository when I have done that.
 
