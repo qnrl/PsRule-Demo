@@ -1,10 +1,14 @@
 ﻿# How to use `PsRule` to analyse Bicep IaC templates #
 
+> I created this repository to help me explain PsRule to my colleagues at [Quorum](https://www.qnrl.com). As I read more of the documentation and watched the YouTube videos by Bernie White I realised that much of what I've done here had also been done by Bernie or the other contributors to the project and I'd just not realised that. As such you'll not find anything especially new or unique here but it was a valuable learning experience preparing to teach others and also helping myself to learn. Please have a look at the [list of resources](#references) at the bottom to jump to the official learning resources and documentation which is as good or better than what I've put there. You'll find something very similar to what I've done here in the [PSRule for Azure Quick Start](https://github.com/Azure/PSRule.Rules.Azure-quickstart) repository. It has the advantage that it's a template repository so you can use it as a starting point for your own IaC testing:
+>
+> [![use the PSRule for Azure Quick Start template](assets/psruleforazureqsrepo.png)](https://github.com/Azure/PSRule.Rules.Azure-quickstart)
+
 In thinking how to explain what PsRule is and how it works I decided that using a specific implementation called `PsRule for Azure` to check a Bicep template is a good way to demonstrate how to use `PsRule` more generally.
 
 [PsRule for Azure](https://azure.github.io/PSRule.Rules.Azure/about/) is a set of rules that you can use to analyse Infrastructure-as-Code (IaC) templates, written in Bicep, against a set of rules that implement [Azure Well Architected Framework (WAF)](https://learn.microsoft.com/azure/architecture/framework/) principles
 
-This is a 'simplest possible' sample project to show how to [use PsRule for Azure with a Bicep template](https://azure.github.io/PSRule.Rules.Azure/using-bicep/). It can also be used with ARM Templates and Terraform.
+This is a 'simplest possible' sample project to show how to [use PsRule for Azure with a Bicep template](https://azure.github.io/PSRule.Rules.Azure/using-bicep/). It can also be used with ARM Templates (and [perhaps one day](https://github.com/Azure/PSRule.Rules.Azure/issues/1193) with Terraform).
 
 This example focusses on executing the rule-checking process locally on Windows or in a Dev Container (or GitHub Codespace) but it can also be used in a GitHub Action or Azure DevOps Pipeline.
 
@@ -92,5 +96,10 @@ This project is inspired by this blog post - [PsRule: Introduction to Infrastruc
 [PsRule](https://github.com/microsoft/PSRule) is an open source project hosted by Microsoft and maintained by [@BernieWhite](https://github.com/BernieWhite) and [@ms-sambell](https://github.com/ms-sambell)
 
 [PsRule.Rules.Azure](https://github.com/Azure/PSRule.Rules.Azure) is an open source project hosted by Microsoft and maintained by [@BernieWhite](https://github.com/BernieWhite)
+
+Best place to start: [PSRule for Azure Quick Start](https://github.com/Azure/PSRule.Rules.Azure-quickstart)
+
+[VIDEO: Learn PSRule for Azure: Introducing PSRule for Azure](https://www.youtube.com/watch?v=L4CIDqnXLPk)
+[VIDEO: Learn PSRule for Azure: Getting started using GitHub](https://www.youtube.com/watch?v=zdoB80PlN0Y)
 
 This repository was created by [@rohancragg](https://github.com/rohancragg)
