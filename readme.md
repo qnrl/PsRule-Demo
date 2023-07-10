@@ -76,7 +76,7 @@ Invoke-PSRule -Format File -InputPath 'modules/storage/v1/' -Module 'PSRule.Rule
 Assert-PSRule -Format File -InputPath 'modules/storage/v1/' -Module 'PSRule.Rules.Azure' -Outcome Fail, Error # this shows an even more detailed view closer to what is seen in the results from running in a CI/CD pipeline
 ```
 
-If you have a  look at [ps-rule.yaml](ps-rule.yaml) you will see a section that tells the PsRule engine to ignore certain paths. What this is doing is ensuring that we don't get problems with our template `storage.bicep` as this has required parameters with no default value (which is a good practice for modules). This would cause a problem when PsRule tries to expand the bicep template into a simulated resource deployment and so a convention for using PsRule is that we create a simple test bicep template (in this case in the `.tests/` folder). PsRule as configured here finds the test template but ignores the bicep module and so we avoid the error.
+If you have a  look at [ps-rule.yaml](ps-rule.yaml) you will see a section ( `input | pathIgnore` ) that tells the PsRule engine to ignore certain paths. What this is doing is ensuring that we don't get problems with our template `storage.bicep` as this has required parameters with no default value (which is a good practice for modules). This would cause a problem when PsRule tries to expand the bicep template into a simulated resource deployment and so a convention for using PsRule is that we create a simple test bicep template (in this case in the `.tests/` folder). PsRule as configured here finds the test template but ignores the bicep module and so we avoid the error.
 
 
 ## Rule violations still to be fixed ##
