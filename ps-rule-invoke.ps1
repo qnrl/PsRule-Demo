@@ -1,7 +1,7 @@
 ﻿####################################################################################################
 # Install prerequisites:
 ####################################################################################################
-winget install -s winget -e --id "Microsoft.DotNet.Runtime.6"
+winget install -s winget -e --id "Microsoft.DotNet.SDK.9"
 winget install -s winget -e --id "Microsoft.PowerShell"
 winget install -s winget -e --id "Microsoft.Bicep"
 
